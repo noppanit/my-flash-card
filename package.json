@@ -1,0 +1,11 @@
+{
+	"name": "my-flash-card",
+	"version": "0.0.1",
+	"engine": {
+		"node": "0.6.x",
+		"npm": "1.0.x"
+	},
+	"dependencies" : {
+		"express": "*"
+	}
+}
