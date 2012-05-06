@@ -1,6 +1,9 @@
 section.container
-	#card
+	#card.click
 		figure.front #{german}
 		figure.back #{english}
 	
+
+#action
 	a(href="javascript: location.reload(true)") Shuffle!
+	a(href="#", id="flip_link") Flip
