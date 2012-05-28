@@ -11,15 +11,14 @@ var database = { "vocab" : [
 			"id" : "1",
 			"german" : "Wurst",
 			"english" : "Sausage"
-		} 
+		}
 	]
 };
 
+var port = process.env.PORT || 3000;
 
 var app = express.createServer(express.logger());
 app.use(express.static(__dirname + "/assets"));
-
-var port = process.env.PORT || 3000;
 
 app.listen(port, function() {
 	console.log("Listening on ..." + port);
@@ -31,3 +30,6 @@ app.get('/', function(request, response) {
 	response.render("index.jade", {german: vocabulary.german, english: vocabulary.english});
 });
 
+app.get('/add', function(request, response) {
+	response.render("add.jade");
+});

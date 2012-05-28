@@ -72,11 +72,11 @@ a {
 .back {
     -webkit-transform: rotateY(180deg);
     overflow: hidden;
-	background-color: #BBB;
+	background-color: whitesmoke;
 }
 
 .front {
-    background-color: #EEA;
+    background-color: white;
 	-webkit-transform: rotateX(0deg);
 }
 

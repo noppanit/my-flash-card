@@ -8,6 +8,12 @@
 	"dependencies" : {
 		"express": "*",
 		"jade": "*",
-		"redis-url": "*"
+		"redis-url": "*",
+		"vows": "*",
+		"mocha": "*",
+		"should": "*",
+		"mongodb": "*",
+		"mongojs": "*",
+		"mongoose": "*"
 	}
 }
