@@ -1,5 +1,5 @@
 var should = require('should');
-var Vocabulary = require('../modules/vocabulary');
+var Vocabulary = require('../../modules/vocabulary');
 
 describe("Vocabulary", function() {
 	var mongoose;
@@ -27,7 +27,15 @@ describe("Vocabulary", function() {
 	it("should get the collection size", function(done) {
 		var vocabulary = Vocabulary(mongoose);
 		vocabulary.get_count(function(result) {
-			result.should.equal(3);
+			result.should.equal(1);
+			done();
+		});
+	});
+	
+	it("should get random record from collection", function(done) {
+		var vocabulary = Vocabulary(mongoose);
+		vocabulary.get_random(function(result) {
+			should.exist(result);
 			done();
 		});
 	});
