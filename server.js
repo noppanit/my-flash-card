@@ -1,6 +1,7 @@
 var express = require("express");
 var jade = require("jade");
 var mongoose = require("mongoose");
+var Vocabulary = require("./modules/vocabulary.js")
 
 var mongo_uri = process.env.MONGOLAB_URI || "mongodb://localhost:27017/test"
 var port = process.env.PORT || 3000;
@@ -24,9 +25,7 @@ app.listen(port, function() {
 
 app.get('/', function(request, response) {	
 	var vocabulary = Vocabulary(mongoose);
-	vocabulary.get_count(function(count) {
-		var randomNum = Math.floor(Math.random()*count);
+	vocabulary.get_random(function(result) {
+		response.render("index.jade", {german: result.german, english: result.english});
 	});
-	
-	response.render("index.jade", {german: vocabulary.german, english: vocabulary.english});
 });
