@@ -1,7 +1,7 @@
 var Vocabulary = function(mongoose) {
-	
+	var collection_name = "vocabulary";
 	function get(german_vocab, callback) {
-		mongoose.connection.db.collection("test", function (err, collection) {
+		mongoose.connection.db.collection(collection_name, function (err, collection) {
 	    	collection.findOne({ "german" : german_vocab }, function(err, result) {
 				callback(result.english)
 			});
@@ -9,7 +9,7 @@ var Vocabulary = function(mongoose) {
 	}
 	
 	function get_count(callback) {
-		mongoose.connection.db.collection("test", function (err, collection) {
+		mongoose.connection.db.collection(collection_name, function (err, collection) {
 	    	collection.count(function(err, result) {
 				callback(result);
 			});
@@ -18,7 +18,7 @@ var Vocabulary = function(mongoose) {
 	
 	function get_random(callback) {
 		var rand = Math.random();
-		mongoose.connection.db.collection("test", function (err, collection) {
+		mongoose.connection.db.collection(collection_name, function (err, collection) {
 			collection.findOne( { "random" : { $gte : rand } }, function(err, result) {
 				if(result == null) {
 					collection.findOne( { "random" : { $lte : rand } }, function(err, result) {
