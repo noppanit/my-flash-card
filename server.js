@@ -17,8 +17,8 @@ app.listen(port, function() {
 	}); 
 
 	mongoose.connection.on("open", function(err){
-		console.log("Mongoose is connected!")
 		if (err) throw err;
+		console.log("Mongoose is connected!");
 	});
 	
 });

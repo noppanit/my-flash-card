@@ -19,6 +19,7 @@ var Vocabulary = function(mongoose) {
 	function get_random(callback) {
 		var rand = Math.random();
 		mongoose.connection.db.collection(collection_name, function (err, collection) {
+			if (err) throw err;
 			collection.findOne( { "random" : { $gte : rand } }, function(err, result) {
 				if(result == null) {
 					collection.findOne( { "random" : { $lte : rand } }, function(err, result) {
